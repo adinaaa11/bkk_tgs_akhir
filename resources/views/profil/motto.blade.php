@@ -3,77 +3,45 @@
 @section('title', 'Motto BKK SMKN 1 Purwosari')
 
 @section('content')
-<style>
-    .motto-hero {
-        background: linear-gradient(135deg, #374151, #1f2937); /* abu gelap → hitam lembut */
-        color: white;
-        padding: 60px 20px;
-        text-align: center;
-        border-radius: 12px;
-        margin-bottom: 40px;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
-    .motto-hero h1 {
-        font-size: 2.3rem;
-        font-weight: 800;
-        margin-bottom: 12px;
-        letter-spacing: 0.5px;
-    }
-    .motto-hero p {
-        font-size: 1.1rem;
-        font-weight: 400;
-        opacity: 0.9;
-    }
+<!-- Hero Section -->
+<section class="relative bg-blue-500 text-white text-center py-12 overflow-hidden shadow-md">
+  <div class="absolute inset-0 bg-[url('{{ asset('pattern.svg') }}')] opacity-10"></div>
+  <div class="relative z-10 max-w-2xl mx-auto px-4">
+    <h1 class="text-3xl md:text-4xl font-bold tracking-wide drop-shadow-sm">
+      Motto BKK SMKN 1 Purwosari
+    </h1>
+    <p class="mt-3 text-base md:text-lg text-blue-100 font-light">
+      Mengantarkan siswa dan alumni menuju dunia kerja & industri
+    </p>
+    <div class="mt-5 w-20 h-1 bg-blue-800 mx-auto rounded-full"></div>
+  </div>
+</section>
 
-    .motto-section {
-        background: #ffffff;
-        padding: 40px;
-        border-radius: 12px;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-        text-align: center;
-    }
-    .motto-section h3 {
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: #1f2937; /* abu gelap */
-    }
-    .motto-list {
-        list-style: none;
-        padding: 0;
-    }
-    .motto-list li {
-        font-size: 1.05rem;
-        margin: 14px 0;
-        font-weight: 500;
-        position: relative;
-        padding-left: 34px;
-        color: #374151;
-    }
-    .motto-list li::before {
-        content: "✔";
-        position: absolute;
-        left: 0;
-        color: #374151; /* abu elegan */
-        font-size: 1.1rem;
-        font-weight: bold;
-    }
-</style>
-
-<div class="container py-5">
-    <!-- Hero Motto -->
-    <div class="motto-hero">
-        <h1>Motto BKK SMKN 1 Purwosari</h1>
-        <p>Mengantarkan siswa dan alumni menuju dunia kerja & industri</p>
+<!-- Motto Content -->
+<section class="bg-gradient-to-b from-gray-50 to-gray-100 py-20">
+  <div class="container mx-auto px-6 md:px-12">
+    <div class="bg-white rounded-3xl shadow-xl p-10 border border-gray-200 hover:shadow-2xl transition duration-500 transform hover:-translate-y-2 max-w-3xl mx-auto" data-aos="fade-up">
+      <div class="flex items-center mb-6 justify-center">
+        <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-3 rounded-full shadow-md">
+          <span class="text-white text-2xl">💡</span>
+        </div>
+        <h2 class="ml-4 text-3xl font-bold text-gray-800">Motto Kami</h2>
+      </div>
+      <ul class="space-y-4 text-gray-700 text-lg leading-relaxed text-justify">
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-3">✔</span>
+          <span>Siap kerja, berkarakter, dan profesional.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-3">✔</span>
+          <span>Menjadi penghubung siswa, alumni, dan dunia industri.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-3">✔</span>
+          <span>Melayani dengan sepenuh hati untuk masa depan cerah.</span>
+        </li>
+      </ul>
     </div>
-
-    <!-- Motto Content -->
-    <div class="motto-section">
-        <h3>Motto Kami</h3>
-        <ul class="motto-list">
-            <li>Siap kerja, berkarakter, dan profesional.</li>
-            <li>Menjadi penghubung siswa, alumni, dan dunia industri.</li>
-            <li>Melayani dengan sepenuh hati untuk masa depan cerah.</li>
-        </ul>
-    </div>
-</div>
+  </div>
+</section>
 @endsection

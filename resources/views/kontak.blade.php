@@ -30,7 +30,9 @@
                         <textarea class="form-control rounded-3" rows="5" placeholder="Tulis pesan Anda di sini..."></textarea>
                     </div>
                     <div class="text-end">
-                        <button type="submit" class="btn text-white px-4 py-2 rounded-3" style="background-color: #facc15;">
+                        <button type="submit" 
+                                class="btn px-4 py-2 rounded-3 text-white fw-semibold shadow-sm"
+                                style="background: linear-gradient(90deg, #2563eb, #1d4ed8); border: none;">
                             <i class="bi bi-send-fill"></i> Kirim Pesan
                         </button>
                     </div>
@@ -40,7 +42,7 @@
 
         <!-- Info Kontak -->
         <div class="col-lg-5">
-            <div class="card shadow-lg border-0 rounded-4 p-4" style="background-color: #1e3a8a;">
+            <div class="card shadow-lg border-0 rounded-4 p-4" style="background: linear-gradient(180deg, #1e3a8a, #1d4ed8);">
                 <h5 class="text-white fw-bold mb-3"><i class="bi bi-geo-alt-fill"></i> Alamat Kami</h5>
                 <p class="text-light mb-4">
                     SMKN 1 Purwosari<br>

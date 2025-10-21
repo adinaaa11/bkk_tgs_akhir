@@ -3,105 +3,94 @@
 @section('title', 'Daftar Perusahaan')
 
 @section('content')
-<div class="min-h-screen bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50 py-16 px-6">
+<div class="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-16 px-6">
 
     <!-- Hero Section -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-        <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 mb-6 drop-shadow-lg">
-            🏢 Mitra Perusahaan
+        <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700">
+            🌐 Daftar Perusahaan
         </h1>
-        <p class="text-gray-700 text-lg leading-relaxed">
-            Berikut adalah daftar perusahaan mitra kami yang telah bekerja sama dalam mendukung program penyaluran kerja,
-            magang, dan kerjasama lainnya. Temukan informasi detail setiap perusahaan di bawah ini.
+        <p class="mt-4 text-lg text-gray-600">
+            Temukan berbagai perusahaan mitra kami yang siap membuka peluang karir untukmu.
         </p>
     </div>
 
-    <!-- Form Pencarian + Filter -->
-    <form action="{{ route('perusahaan.index') }}" method="GET" 
-          class="max-w-4xl mx-auto mb-14 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-gray-200">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+    <!-- Form Pencarian + Dropdown PT -->
+    <div class="max-w-3xl mx-auto mb-12">
+        <form action="{{ route('perusahaan.index') }}" method="GET" class="grid grid-cols-1 md:grid-cols-3 gap-3">
 
-            <!-- Search -->
-            <div class="flex items-center border rounded-xl overflow-hidden shadow-sm col-span-2">
+            <!-- Input Pencarian -->
+            <div class="md:col-span-2 flex gap-3">
                 <input type="text" name="search" value="{{ request('search') }}"
-                    class="flex-1 px-4 py-3 text-gray-700 focus:outline-none"
-                    placeholder="🔍 Cari nama atau alamat perusahaan...">
-                <button class="bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-6 py-3 hover:opacity-90 transition">
+                    class="flex-grow px-5 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
+                    placeholder="🔍 Cari perusahaan...">
+                <button 
+                    class="bg-gradient-to-r from-blue-400 to-blue-500 text-white px-6 py-3 rounded-xl shadow-md hover:shadow-lg hover:scale-[1.03] transition">
                     Cari
                 </button>
             </div>
 
-            <!-- Filter Kategori -->
-            <select name="kategori" onchange="this.form.submit()"
-                class="border px-4 py-3 rounded-xl text-gray-700 shadow-sm focus:ring-2 focus:ring-pink-400">
-                <option value="">📂 Semua Kategori</option>
-                @foreach($kategori as $k)
-                    <option value="{{ $k }}" {{ request('kategori') == $k ? 'selected' : '' }}>
-                        {{ $k }}
-                    </option>
-                @endforeach
-            </select>
-        </div>
-    </form>
+            <!-- Dropdown Daftar PT di Indonesia -->
+            <div>
+                <select name="nama_pt" onchange="this.form.submit()"
+                    class="w-full px-5 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition">
+                    <option value="">🏢 Semua PT di Indonesia</option>
+                    <option value="PT Telkom Indonesia" {{ request('nama_pt') == 'PT Telkom Indonesia' ? 'selected' : '' }}>📡 PT Telkom Indonesia</option>
+                    <option value="PT Pertamina" {{ request('nama_pt') == 'PT Pertamina' ? 'selected' : '' }}>⛽ PT Pertamina</option>
+                    <option value="PT PLN" {{ request('nama_pt') == 'PT PLN' ? 'selected' : '' }}>⚡ PT PLN (Persero)</option>
+                    <option value="PT Astra International" {{ request('nama_pt') == 'PT Astra International' ? 'selected' : '' }}>🚗 PT Astra International</option>
+                    <option value="PT Indofood Sukses Makmur" {{ request('nama_pt') == 'PT Indofood Sukses Makmur' ? 'selected' : '' }}>🍜 PT Indofood Sukses Makmur</option>
+                    <option value="PT Garuda Indonesia" {{ request('nama_pt') == 'PT Garuda Indonesia' ? 'selected' : '' }}>✈️ PT Garuda Indonesia</option>
+                    <option value="PT Freeport Indonesia" {{ request('nama_pt') == 'PT Freeport Indonesia' ? 'selected' : '' }}>⛏️ PT Freeport Indonesia</option>
+                    <option value="PT Unilever Indonesia" {{ request('nama_pt') == 'PT Unilever Indonesia' ? 'selected' : '' }}>🧴 PT Unilever Indonesia</option>
+                    <option value="PT Bank Mandiri" {{ request('nama_pt') == 'PT Bank Mandiri' ? 'selected' : '' }}>🏦 PT Bank Mandiri</option>
+                    <option value="PT Bank BRI" {{ request('nama_pt') == 'PT Bank BRI' ? 'selected' : '' }}>💰 PT Bank BRI</option>
+                    <option value="PT Bank BCA" {{ request('nama_pt') == 'PT Bank BCA' ? 'selected' : '' }}>💳 PT Bank BCA</option>
+                    <option value="PT Kimia Farma" {{ request('nama_pt') == 'PT Kimia Farma' ? 'selected' : '' }}>💊 PT Kimia Farma</option>
+                    <option value="PT Bukalapak" {{ request('nama_pt') == 'PT Bukalapak' ? 'selected' : '' }}>🛍️ PT Bukalapak</option>
+                    <option value="PT Tokopedia" {{ request('nama_pt') == 'PT Tokopedia' ? 'selected' : '' }}>🐸 PT Tokopedia</option>
+                    <option value="PT Gojek Indonesia" {{ request('nama_pt') == 'PT Gojek Indonesia' ? 'selected' : '' }}>🛵 PT Gojek Indonesia</option>
+                    <option value="PT Shopee Indonesia" {{ request('nama_pt') == 'PT Shopee Indonesia' ? 'selected' : '' }}>🛒 PT Shopee Indonesia</option>
+                </select>
+            </div>
+        </form>
+    </div>
 
     <!-- Grid Perusahaan -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
         @forelse($perusahaans as $perusahaan)
-        <div class="bg-white p-8 rounded-3xl shadow-xl border border-transparent bg-gradient-to-br from-white to-blue-50 hover:from-indigo-50 hover:to-pink-50 transition transform hover:-translate-y-2 hover:scale-[1.02] relative">
-
-            <!-- Badge pojok -->
-            @if($perusahaan->mou)
-                <span class="absolute top-4 right-4 bg-gradient-to-r from-indigo-600 to-pink-600 text-white text-xs px-3 py-1 rounded-full shadow-md">
-                    🔗 MOU
-                </span>
-            @endif
-
-            <!-- Logo -->
-            <div class="flex justify-center mb-6">
-                @if($perusahaan->logo)
-                    <img src="{{ asset('storage/' . $perusahaan->logo) }}" 
-                         class="w-24 h-24 object-cover rounded-full ring-4 ring-pink-500/30 shadow-lg">
-                @else
-                    <div class="w-24 h-24 flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white text-2xl font-bold shadow-lg">
-                        {{ strtoupper(substr($perusahaan->nama,0,2)) }}
+            <div class="bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl hover:scale-[1.02] transition">
+                <div class="flex items-center gap-4 mb-4">
+                    @if($perusahaan->logo)
+                        <img src="{{ asset('storage/' . $perusahaan->logo) }}" alt="Logo {{ $perusahaan->nama }}"
+                            class="w-16 h-16 object-cover rounded-full border border-gray-200 shadow-sm">
+                    @else
+                        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 text-blue-500 font-bold text-lg">
+                            {{ strtoupper(substr($perusahaan->nama, 0, 1)) }}
+                        </div>
+                    @endif
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-800">{{ $perusahaan->nama }}</h2>
+                        <p class="text-sm text-gray-500">{{ $perusahaan->bidang }}</p>
                     </div>
-                @endif
-            </div>
-
-            <!-- Info -->
-            <h2 class="text-xl font-bold text-gray-800 text-center">{{ $perusahaan->nama }}</h2>
-            <p class="text-gray-500 text-center text-sm mt-1">📅 Gabung: {{ $perusahaan->tahun_gabung }}</p>
-            <p class="mt-4 text-gray-600 text-center text-sm leading-relaxed">📍 {{ $perusahaan->alamat }}</p>
-
-            <!-- Label -->
-            <div class="mt-5 flex justify-center gap-2 flex-wrap">
-                @if($perusahaan->kategori)
-                    <span class="inline-block bg-gradient-to-r from-pink-100 to-pink-200 text-pink-700 text-xs px-3 py-1 rounded-full">
-                        {{ $perusahaan->kategori }}
-                    </span>
-                @endif
-            </div>
-
-            <!-- Tombol -->
-            <div class="mt-8 flex justify-center">
-                <a href="{{ route('perusahaan.show', $perusahaan) }}" 
-                   class="px-6 py-2 text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-indigo-600 to-pink-500 hover:opacity-90 transition">
-                   📋 Detail Perusahaan
+                </div>
+                <p class="text-gray-600 leading-relaxed mb-4 line-clamp-3">
+                    {{ $perusahaan->deskripsi }}
+                </p>
+                <a href="{{ route('perusahaan.show', $perusahaan->id) }}"
+                   class="inline-block bg-gradient-to-r from-blue-400 to-blue-500 text-white px-4 py-2 rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition">
+                    Lihat Detail
                 </a>
             </div>
-        </div>
         @empty
-        <!-- Empty State -->
-        <div class="col-span-3 text-center py-20">
-            <img src="https://illustrations.popsy.co/gray/work-from-home.svg" alt="Empty" class="w-60 mx-auto mb-6 opacity-80">
-            <p class="text-gray-500 text-lg">🚫 Tidak ada perusahaan ditemukan.</p>
-        </div>
+            <p class="text-center text-gray-500 col-span-full">🚫 Belum ada perusahaan yang tersedia.</p>
         @endforelse
     </div>
 
     <!-- Pagination -->
-    <div class="mt-14 flex justify-center">
-        {{ $perusahaans->appends(request()->query())->links() }}
+    <div class="mt-12">
+        {{ $perusahaans->links() }}
     </div>
+
 </div>
 @endsection

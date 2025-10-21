@@ -40,12 +40,13 @@
                 </div>
 
                 {{-- Button --}}
-                <div>
-                    <button type="submit"
-                            class="w-full bg-gradient-to-r from-blue-500 to-yellow-400 text-white font-semibold py-3 rounded-xl shadow-md hover:shadow-lg transition">
-                        Terapkan
-                    </button>
-                </div>
+<div>
+    <button type="submit"
+            class="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold py-3 rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition">
+        Terapkan
+    </button>
+</div>
+
             </form>
         </div>
 

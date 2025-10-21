@@ -4,268 +4,242 @@
 
 @section('content')
 <style>
-/* Hero Section */
+/* ---------- HERO ---------- */
 .program-hero {
-    position: relative;
-    background: url('https://source.unsplash.com/1600x500/?business,education') center/cover no-repeat;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    margin-bottom: 40px;
-    overflow: hidden;
+  background: linear-gradient(to right, #2563eb, #1e40af);
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+  border-radius: 18px;
+  margin: 20px auto 50px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
-.program-hero .overlay {
-    background: rgba(0,0,0,0.55);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.program-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
 }
-.hero-title {
-    font-size: 2.8rem;
-    font-weight: 800;
-    color: white;
-    margin-bottom: 10px;
-}
-.hero-title span {
-    color: #00f2fe;
-}
-.hero-subtitle {
-    font-size: 1.1rem;
-    color: #f1f1f1;
-    font-weight: 400;
-    max-width: 700px;
-    margin: 0 auto;
+.program-hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
 }
 
-/* Section Title */
-.section-title {
-    padding: 20px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #fdfbfb, #ebedee);
-}
-.section-title h2 {
-    font-weight: 800;
-    color: #333;
-}
-.section-title h2 span {
-    color: #0077ff;
-}
-.section-title .subtitle {
-    font-size: 15px;
-    color: #555;
-}
-
-/* Program Grid */
+/* ---------- GRID ---------- */
 .program-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+@media (min-width: 768px) {
+  .program-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 .program-card {
-    background: #fff;
-    border-radius: 15px;
-    padding: 30px 20px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    text-align: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 22px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  border: 1px solid #e5e7eb;
 }
 .program-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(37,99,235,0.25);
 }
 .program-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 36px;
-    margin: 0 auto 20px auto;
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
-    color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 30px;
+  background: linear-gradient(135deg,#2563eb,#1e40af);
+  color: #fff;
 }
 .program-card h5 {
-    font-weight: 600;
-    margin-bottom: 15px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 12px;
 }
-.program-card p, 
 .program-card ul {
-    font-size: 15px;
-    line-height: 1.6;
-    margin: 0;
-    padding-left: 0;
-    list-style: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.program-card li {
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 6px;
+  position: relative;
+}
+.program-card li::before {
+  content: "✔";
+  color: #2563eb;
+  margin-right: 8px;
 }
 
-/* Table Style */
+/* ---------- TABLE ---------- */
 .table-section {
-    background: #fff;
-    border-radius: 15px;
-    padding: 30px;
-    margin-top: 50px;
-    box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+  margin-top: 70px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+}
+.table-section h3 {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 25px;
 }
 .table thead {
-    background: #0d6efd;
-    color: #fff;
+  background: #2563eb;
+  color: #fff;
 }
-.table tbody tr {
-    transition: 0.3s;
+.table tbody tr:nth-child(odd) {
+  background: #f1f5f9; /* abu muda */
+}
+.table tbody tr:nth-child(even) {
+  background: #e0f2fe; /* biru muda */
 }
 .table tbody tr:hover {
-    background: #f8f9fa;
+  background: #dbeafe; /* hover biru lebih pekat */
 }
-
-/* Warna pastel tiap baris */
-.table tbody tr:nth-child(1) { background: #e3f2fd; }
-.table tbody tr:nth-child(2) { background: #f1f8e9; }
-.table tbody tr:nth-child(3) { background: #fff3e0; }
-.table tbody tr:nth-child(4) { background: #fce4ec; }
-.table tbody tr:nth-child(5) { background: #ede7f6; }
-.table tbody tr:nth-child(6) { background: #e0f7fa; }
-
-/* Badge Pastel */
-.badge-pastel {
-    display: inline-block;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #333;
+.table td, .table th {
+  vertical-align: middle;
 }
-.badge-blue { background: #bbdefb; }
-.badge-green { background: #c8e6c9; }
-.badge-orange { background: #ffe0b2; }
-.badge-pink { background: #f8bbd0; }
-.badge-purple { background: #d1c4e9; }
-.badge-cyan { background: #b2ebf2; }
 </style>
 
-<div class="program-section py-5" style="background: #f8fafc;">
-    <div class="container">
-        <div class="section-title text-center mb-5">
-            <h2>✨ Program Kerja <span>BKK SMKN 1 Purwosari</span> ✨</h2>
-            <p class="subtitle">Mendukung siswa & alumni menuju dunia kerja dan industri</p>
-        </div>
+<!-- HERO -->
+<section class="program-hero">
+  <h1>Program Kerja BKK SMKN 1 Purwosari</h1>
+  <p>Mendukung visi & misi melalui layanan, pelatihan, dan kolaborasi industri.</p>
+</section>
 
-        <!-- Program Cards -->
-        <div class="program-grid">
-            <div class="program-card">
-                <div class="program-icon">🎓</div>
-                <h5>Pelayanan Siswa & Alumni</h5>
-                <ul>
-                    <li>Info lowongan kerja terbaru.</li>
-                    <li>Database alumni siap kerja.</li>
-                    <li>Bimbingan karir & etika kerja.</li>
-                </ul>
-            </div>
-            <div class="program-card">
-                <div class="program-icon">🤝</div>
-                <h5>Kerja Sama dengan DUDI</h5>
-                <ul>
-                    <li>Kerjasama perekrutan dengan perusahaan.</li>
-                    <li>Penghubung siswa/alumni & industri.</li>
-                    <li>MoU dengan mitra perusahaan.</li>
-                </ul>
-            </div>
-            <div class="program-card">
-                <div class="program-icon">📋</div>
-                <h5>Rekrutmen & Penyaluran</h5>
-                <ul>
-                    <li>Rekrutmen langsung di sekolah.</li>
-                    <li>Layanan rekrutmen online.</li>
-                    <li>Penyaluran sesuai jurusan.</li>
-                </ul>
-            </div>
-            <div class="program-card">
-                <div class="program-icon">📚</div>
-                <h5>Pelatihan & Pengembangan</h5>
-                <ul>
-                    <li>Pelatihan soft skill & hard skill.</li>
-                    <li>Workshop CV & wawancara.</li>
-                    <li>Simulasi psikotes & interview.</li>
-                </ul>
-            </div>
-            <div class="program-card">
-                <div class="program-icon">📢</div>
-                <h5>Promosi & Publikasi</h5>
-                <ul>
-                    <li>Brosur & website lowongan kerja.</li>
-                    <li>Publikasi di media sosial & website.</li>
-                    <li>Job fair berkala.</li>
-                </ul>
-            </div>
-            <div class="program-card">
-                <div class="program-icon">📊</div>
-                <h5>Monitoring & Evaluasi</h5>
-                <ul>
-                    <li>Monitoring alumni yang bekerja.</li>
-                    <li>Evaluasi kepuasan mitra.</li>
-                    <li>Laporan tahunan BKK.</li>
-                </ul>
-            </div>
-        </div>
+<!-- PROGRAM GRID -->
+<div class="container py-5">
+  <div class="text-center mb-10">
+    <h2 class="text-2xl font-bold text-blue-700">💼 Program Unggulan</h2>
+    <p class="text-gray-600 mt-2">Rangkaian kegiatan utama BKK untuk siswa dan alumni</p>
+  </div>
+
+  <div class="program-grid">
+    <div class="program-card">
+      <div class="program-icon">🎓</div>
+      <h5>Pelayanan Siswa & Alumni</h5>
+      <ul>
+        <li>Info lowongan kerja terbaru.</li>
+        <li>Database alumni siap kerja.</li>
+        <li>Bimbingan karir & etika kerja.</li>
+      </ul>
     </div>
+    <div class="program-card">
+      <div class="program-icon">🤝</div>
+      <h5>Kerja Sama dengan DUDI</h5>
+      <ul>
+        <li>Kerjasama perekrutan dengan perusahaan.</li>
+        <li>Penghubung siswa/alumni & industri.</li>
+        <li>MoU dengan mitra perusahaan.</li>
+      </ul>
+    </div>
+    <div class="program-card">
+      <div class="program-icon">📋</div>
+      <h5>Rekrutmen & Penyaluran</h5>
+      <ul>
+        <li>Rekrutmen langsung di sekolah.</li>
+        <li>Layanan rekrutmen online.</li>
+        <li>Penyaluran sesuai jurusan.</li>
+      </ul>
+    </div>
+    <div class="program-card">
+      <div class="program-icon">📚</div>
+      <h5>Pelatihan & Pengembangan</h5>
+      <ul>
+        <li>Pelatihan soft skill & hard skill.</li>
+        <li>Workshop CV & wawancara.</li>
+        <li>Simulasi psikotes & interview.</li>
+      </ul>
+    </div>
+    <div class="program-card">
+      <div class="program-icon">📢</div>
+      <h5>Promosi & Publikasi</h5>
+      <ul>
+        <li>Brosur & website lowongan kerja.</li>
+        <li>Publikasi di media sosial & website.</li>
+        <li>Job fair berkala.</li>
+      </ul>
+    </div>
+    <div class="program-card">
+      <div class="program-icon">📊</div>
+      <h5>Monitoring & Evaluasi</h5>
+      <ul>
+        <li>Monitoring alumni yang bekerja.</li>
+        <li>Evaluasi kepuasan mitra.</li>
+        <li>Laporan tahunan BKK.</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<!-- Tabel Rencana Kerja Tahunan -->
-<div class="table-section mt-5">
-    <h3 class="mb-4 text-center fw-bold">📅 Rencana Kerja Tahunan BKK</h3>
-    <div class="table-responsive">
-        <table class="table align-middle shadow-sm rounded overflow-hidden">
-            <thead class="text-center text-white" style="background: #0d6efd;">
-                <tr>
-                    <th style="width: 60px;">No</th>
-                    <th>Kegiatan</th>
-                    <th style="width: 220px;">Waktu Pelaksanaan</th>
-                    <th style="width: 220px;">Penanggung Jawab</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="text-center fw-bold">1</td>
-                    <td>Pendataan alumni dan update database</td>
-                    <td><span class="badge-pastel badge-blue">📌 Januari – Februari</span></td>
-                    <td>👤 Koordinator BKK</td>
-                </tr>
-                <tr>
-                    <td class="text-center fw-bold">2</td>
-                    <td>Pelatihan soft skill & persiapan kerja</td>
-                    <td><span class="badge-pastel badge-green">📌 Maret – April</span></td>
-                    <td>👤 Tim Pelatihan</td>
-                </tr>
-                <tr>
-                    <td class="text-center fw-bold">3</td>
-                    <td>Rekrutmen & seleksi calon tenaga kerja</td>
-                    <td><span class="badge-pastel badge-orange">📌 Mei – Juni</span></td>
-                    <td>👤 BKK & HRD Mitra</td>
-                </tr>
-                <tr>
-                    <td class="text-center fw-bold">4</td>
-                    <td>Job Fair BKK</td>
-                    <td><span class="badge-pastel badge-pink">📌 Juli – Agustus</span></td>
-                    <td>👤 BKK & Panitia</td>
-                </tr>
-                <tr>
-                    <td class="text-center fw-bold">5</td>
-                    <td>Monitoring alumni bekerja</td>
-                    <td><span class="badge-pastel badge-purple">📌 September – Oktober</span></td>
-                    <td>👤 Koordinator Alumni</td>
-                </tr>
-                <tr>
-                    <td class="text-center fw-bold">6</td>
-                    <td>Evaluasi & laporan kegiatan tahunan</td>
-                    <td><span class="badge-pastel badge-cyan">📌 November – Desember</span></td>
-                    <td>👤 Kepala BKK</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<!-- TABLE -->
+<div class="container table-section">
+  <h3>📅 Rencana Kerja Tahunan</h3>
+  <div class="table-responsive">
+    <table class="table align-middle table-hover text-center">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Kegiatan</th>
+          <th>Waktu</th>
+          <th>Penanggung Jawab</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Pendataan alumni & update database</td>
+          <td>Jan – Feb</td>
+          <td>Koordinator BKK</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Pelatihan soft skill & persiapan kerja</td>
+          <td>Mar – Apr</td>
+          <td>Tim Pelatihan</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Rekrutmen & seleksi tenaga kerja</td>
+          <td>Mei – Jun</td>
+          <td>BKK & HRD Mitra</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Job Fair BKK</td>
+          <td>Jul – Ags</td>
+          <td>BKK & Panitia</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Monitoring alumni bekerja</td>
+          <td>Sep – Okt</td>
+          <td>Koordinator Alumni</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Evaluasi & laporan tahunan</td>
+          <td>Nov – Des</td>
+          <td>Kepala BKK</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 @endsection
